@@ -1,0 +1,24 @@
+bundles:
+  signed_policy_bundle:
+    service: bundle_server
+    resource: /bundles/signed-policy-bundle.tar.gz
+    polling:
+      min_delay_seconds: 60
+      max_delay_seconds: 120
+    signing:
+      keyid: signed_policy_bundle_pub_key
+decision_logs:
+  console: true
+keys:
+  signed_policy_bundle_pub_key:
+    key: |
+      -----BEGIN PUBLIC KEY-----
+      MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAy231cji4yYzzH2Pww4so
+      AsBWvrNxM3bGzmJ8RSN8zK5Bu/gZ61Wh0aqZsgIb+KZg90oON5w+Z4NLit+S2JFF
+      1TcVNw77KWNAzIllg19/XFxE6BAsUoicwnpmpijyl5Hnpna2lYje0hj5xpivgvCX
+      yyM3U30Nf7hk6dxKJa1c4UGZ5ZAlAopLJ0G0ihsd9mE22WJhDGYOXA3DGTKpVgqV
+      NOv1BV/rYLqrEaLLT/qtHUBtYpduk1NH/Bx2kfDjHQ0FXrG81cuh3Cgw1YWtL+ia
+      0djQgzbdayF8r4MxISF7XGhgyYh+bh1qHZGRg3d+a3vHXr1uAku1WAX71d9rARco
+      hQIDAQAB
+      -----END PUBLIC KEY-----
+    algorithm: RS256

@@ -1,0 +1,17 @@
+services:
+  bundle_server:
+    container_name: bundle_server
+    image: nginx:alpine
+    ports:
+      - "80:80"
+    volumes:
+      - ./bundle-server:/usr/share/nginx/html
+  opa:
+    container_name: opa
+    image: openpolicyagent/opa:0.40.0-debug
+    command: run -s --addr=:8181 --diagnostic-addr=:8282 --log-level=debug --set services.bundle_server.url=http://bundle_server --set discovery.resource=/configuration/discovery-with-${BUNDLE_TYPE}-bundle.tar.gz --skip-version-check
+    depends_on:
+      - bundle_server
+    ports:
+      - "8181:8181"
+      - "8282:8282"

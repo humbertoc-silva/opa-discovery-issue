@@ -1,0 +1,9 @@
+bundles:
+  unsigned_policy_bundle:
+    service: bundle_server
+    resource: /bundles/unsigned-policy-bundle.tar.gz
+    polling:
+      min_delay_seconds: 60
+      max_delay_seconds: 120
+decision_logs:
+  console: true
